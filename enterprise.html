@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>SonicSeal — Enterprise SDK</title>
+<style>
+  :root{
+    --bg:#0a0a0d; --bg2:#13131a; --line:#23232c; --text:#e8e8ec; --dim:#8b8b95;
+    --accent:#ff7a1a; --ok:#21c47a;
+    --maxw:980px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text);font:16px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  header{padding:24px 0;border-bottom:1px solid var(--line)}
+  .logo{display:flex;gap:10px;align-items:center;font-weight:700}
+  .logo .mark{width:28px;height:28px;background:var(--accent);border-radius:7px;display:grid;place-items:center;color:#000;font-weight:900}
+  h1{font-size:clamp(32px,5vw,52px);line-height:1.1;margin:48px 0 16px;font-weight:800;letter-spacing:-.02em}
+  h2{font-size:24px;margin:40px 0 12px;letter-spacing:-.01em}
+  h3{font-size:18px;margin:24px 0 8px}
+  p{color:var(--text);margin:8px 0;max-width:740px}
+  .lead{font-size:18px;color:var(--dim);max-width:740px}
+  ul{margin:8px 0 8px 20px}
+  li{margin:6px 0}
+  .card{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:24px;margin:24px 0}
+  .badge{display:inline-flex;align-items:center;gap:8px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:11px;color:var(--dim);letter-spacing:.08em;text-transform:uppercase}
+  .price-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0}
+  .price{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:24px}
+  .price h3{font-size:16px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+  .num{font-size:36px;font-weight:800;margin:8px 0;letter-spacing:-.02em}
+  .num small{font-size:13px;color:var(--dim);font-weight:400;letter-spacing:0}
+  .btn{display:inline-block;padding:12px 20px;border-radius:8px;font-weight:600;font-size:14px;border:1px solid var(--line)}
+  .btn-primary{background:var(--accent);color:#000;border-color:var(--accent)}
+  footer{margin:64px 0 32px;padding-top:24px;border-top:1px solid var(--line);color:var(--dim);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
+    <div class="logo"><span class="mark">S</span> SonicSeal · Enterprise</div>
+    <a href="index.html" style="color:var(--dim);font-size:14px">← back to product</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <span class="badge">B2B Integration · Not affiliated with the Mac App Store distribution</span>
+  <h1>SonicSeal SDK for labels, studios and DJ-software vendors</h1>
+  <p class="lead">
+    The Mac App Store version of SonicSeal is a paid desktop application for individual producers and small
+    labels (€179.99 one-time purchase). This page describes a SEPARATE commercial offering — a B2B integration
+    license for record labels, mastering studios, promo-distribution platforms and DJ-software vendors
+    (Pioneer, Native Instruments, Serato, etc.) who want to embed SonicSeal's forensic watermarking pipeline
+    into their own products under a private licensing agreement.
+  </p>
+
+  <div class="card">
+    <h3 style="color:var(--accent)">What this is NOT</h3>
+    <p>This is not an in-app purchase, not a subscription, not an upgrade path, not a tier of the consumer app.
+       The Mac App Store version cannot trigger or unlock this. It is a commercial agreement between SonicSeal,
+       S.L. and another company, negotiated under NDA and signed as a separate contract.</p>
+  </div>
+
+  <h2>Who needs this</h2>
+  <ul>
+    <li><strong>Record labels</strong> shipping pre-release promos to hundreds of DJs each month and wanting
+        forensic traceback on every leak.</li>
+    <li><strong>Mastering studios</strong> offering watermarked client deliveries as a value-added service.</li>
+    <li><strong>DJ software vendors</strong> (Pioneer, Native Instruments, Serato, VirtualDJ) implementing
+        the mutual-handshake protocol so SonicSeal-protected files only play in legitimate, attested builds.</li>
+    <li><strong>Promo distribution platforms</strong> (Promo.ly, Inflyte, label-internal portals) integrating
+        per-recipient watermarking into their existing upload flow.</li>
+  </ul>
+
+  <h2>Indicative pricing</h2>
+  <p class="lead">Final fees are negotiated per-contract based on volume, scope and territory.</p>
+  <div class="price-row">
+    <div class="price">
+      <h3>Label / Studio</h3>
+      <div class="num">From €5,000 <small>/ year</small></div>
+      <ul style="font-size:14px;color:var(--dim);margin-top:12px">
+        <li>SDK access</li>
+        <li>4-hour SLA</li>
+        <li>Up to 50 internal users</li>
+      </ul>
+    </div>
+    <div class="price">
+      <h3>DJ Software Vendor</h3>
+      <div class="num">From €30,000 <small>/ year</small></div>
+      <ul style="font-size:14px;color:var(--dim);margin-top:12px">
+        <li>Build attestation infrastructure</li>
+        <li>Mutual-handshake protocol</li>
+        <li>Co-marketing rights</li>
+        <li>Custom integration support</li>
+      </ul>
+    </div>
+    <div class="price">
+      <h3>Hardware OEM</h3>
+      <div class="num">From €50,000 <small>/ year</small></div>
+      <ul style="font-size:14px;color:var(--dim);margin-top:12px">
+        <li>Royalty: €1.50 / unit shipped</li>
+        <li>Firmware-level integration</li>
+        <li>Audit & compliance reports</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Get in touch</h2>
+  <p>This is not purchased in any app. It requires a signed NDA, a technical scoping call, and a written
+     agreement. Contact us directly:</p>
+  <p style="margin:16px 0">
+    <a class="btn btn-primary" href="mailto:aigod.pro2026@gmail.com?subject=SonicSeal%20Enterprise%20SDK%20inquiry">aigod.pro2026@gmail.com</a>
+  </p>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 Adelio Falcó Martí · SonicSeal, S.L. · Alicante, Spain ·
+    <a href="index.html">Back to consumer product</a>
+  </div>
+</footer>
+
+</body>
+</html>
