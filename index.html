@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0d">
+<title>SonicSeal — DJ-grade audio anti-piracy</title>
+<meta name="description" content="Cryptographic, inaudible per-buyer watermarks for music promos. Identify the leaker of any track in seconds. 100% offline. Mac.">
+<meta property="og:title" content="SonicSeal — DJ-grade audio anti-piracy">
+<meta property="og:description" content="Mark your music. Catch your leaks. Cryptographic forensic watermarking for DJs and labels.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sonicseal.net/">
+<meta property="og:image" content="https://sonicseal.net/og.png">
+<link rel="canonical" href="https://sonicseal.net/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff7a1a'/%3E%3Cpath d='M9 17l4 4 10-10' stroke='%23000' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0a0a0d; --bg2:#13131a; --line:#23232c; --text:#e8e8ec; --dim:#8b8b95;
+    --accent:#ff7a1a; --accent-2:#ffb56b; --ok:#21c47a; --danger:#ff5555;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text);font:16px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  ::selection{background:var(--accent);color:#000}
+
+  /* Layout */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;backdrop-filter:saturate(150%) blur(14px);background:rgba(10,10,13,.78);border-bottom:1px solid var(--line);z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .logo{display:flex;gap:10px;align-items:center;font-weight:700;letter-spacing:-.02em}
+  .logo .mark{width:28px;height:28px;background:var(--accent);border-radius:7px;display:grid;place-items:center;color:#000;font-weight:900}
+  .nav nav{display:flex;gap:24px;font-size:14px;color:var(--dim)}
+  .nav nav a:hover{color:var(--text)}
+
+  /* Hero */
+  .hero{padding:96px 0 64px}
+  .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
+  .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  h1{font-size:clamp(40px,7vw,68px);line-height:1.04;letter-spacing:-.03em;margin:24px 0 16px;font-weight:800}
+  h1 em{color:var(--accent);font-style:normal}
+  .sub{color:var(--dim);font-size:clamp(17px,1.8vw,21px);max-width:680px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
+  .btn{padding:14px 22px;border-radius:10px;font-weight:600;font-size:15px;border:1px solid transparent;display:inline-flex;align-items:center;gap:10px;transition:transform .12s ease}
+  .btn:hover{transform:translateY(-1px);text-decoration:none}
+  .btn-primary{background:var(--accent);color:#000}
+  .btn-primary:hover{background:var(--accent-2)}
+  .btn-ghost{border-color:var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .tiny{color:var(--dim);font-size:13px;margin-top:14px}
+
+  /* Sections */
+  section{padding:80px 0;border-top:1px solid var(--line)}
+  h2{font-size:clamp(26px,3.5vw,38px);letter-spacing:-.02em;margin-bottom:8px;font-weight:800}
+  .lead{color:var(--dim);max-width:680px;margin-bottom:40px}
+
+  /* Features grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .card h3{font-size:18px;margin-bottom:8px;letter-spacing:-.01em}
+  .card p{color:var(--dim);font-size:15px}
+  .card .ico{width:36px;height:36px;border-radius:9px;background:rgba(255,122,26,.13);color:var(--accent);display:grid;place-items:center;margin-bottom:14px;font-size:20px}
+
+  /* How */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg2)}
+  .step{padding:28px;border-right:1px solid var(--line)}
+  .step:last-child{border-right:none}
+  .step .num{font-size:13px;color:var(--accent);font-weight:700;letter-spacing:.1em}
+  .step h3{margin:8px 0;font-size:18px}
+  .step p{color:var(--dim);font-size:14px;line-height:1.5}
+  @media (max-width:760px){.steps{grid-template-columns:1fr}.step{border-right:none;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:none}}
+
+  /* Pricing */
+  .price-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .price{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:28px;position:relative}
+  .price.featured{border-color:var(--accent)}
+  .price.featured:after{content:"Recommended";position:absolute;top:-12px;right:18px;background:var(--accent);color:#000;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.05em}
+  .price h3{font-size:17px;color:var(--dim);margin-bottom:8px;font-weight:600}
+  .price .num{font-size:42px;font-weight:800;letter-spacing:-.02em}
+  .price .num small{font-size:14px;color:var(--dim);font-weight:500}
+  .price ul{list-style:none;margin:20px 0 24px}
+  .price li{padding:6px 0;color:var(--dim);font-size:14px;display:flex;align-items:start;gap:10px}
+  .price li:before{content:"✓";color:var(--ok);font-weight:800;flex:0 0 16px}
+
+  /* Mailing list */
+  .signup{background:linear-gradient(180deg,rgba(255,122,26,.08),transparent 70%),var(--bg2);border:1px solid var(--line);border-radius:18px;padding:48px 32px;text-align:center}
+  .signup h2{margin-bottom:14px}
+  .signup p{color:var(--dim);max-width:520px;margin:0 auto 28px}
+  form.maillist{display:flex;gap:10px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  form.maillist input{flex:1 1 240px;padding:14px 16px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit}
+  form.maillist input:focus{outline:none;border-color:var(--accent)}
+  form.maillist button{background:var(--accent);color:#000;font-weight:700;border:none;padding:14px 22px;border-radius:10px;cursor:pointer;font:inherit}
+  form.maillist button:hover{background:var(--accent-2)}
+  .ok-msg{display:none;color:var(--ok);margin-top:14px}
+  .signup small{display:block;margin-top:14px;color:var(--dim);font-size:12px}
+
+  /* FAQ */
+  details{border-bottom:1px solid var(--line);padding:16px 0}
+  details summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  details summary::-webkit-details-marker{display:none}
+  details summary:after{content:"+";color:var(--accent);font-size:22px;font-weight:300;transition:transform .2s}
+  details[open] summary:after{content:"−"}
+  details p{color:var(--dim);margin-top:12px;font-size:15px}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--dim);font-size:13px}
+  footer .ft{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+  footer a{color:var(--dim)}
+  footer a:hover{color:var(--accent)}
+
+  /* Accents */
+  .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+  .pill{padding:5px 12px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--dim)}
+
+  /* Tier pricing grid */
+  .tier-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:40px}
+  .tier{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;position:relative;transition:border-color .2s,transform .2s}
+  .tier:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .tier.featured{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+  .tier-tag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;padding:4px 14px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+  .tier-name{font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+  .tier-price{font-size:32px;font-weight:800;letter-spacing:-.02em;color:var(--text);margin-bottom:6px}
+  .tier-price small{font-size:13px;color:var(--dim);font-weight:500;letter-spacing:0}
+  .tier-sub{color:var(--dim);font-size:14px;margin-bottom:22px}
+  .tier-list{list-style:none;padding:0;margin:0 0 24px 0;flex-grow:1}
+  .tier-list li{padding:6px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--text)}
+  .tier-list li:before{content:"✓ ";color:var(--ok);font-weight:700}
+  .tier-list li:last-child{border-bottom:0}
+  .btn-soon{background:var(--bg);color:var(--dim);border:1px dashed var(--line);width:100%;justify-content:center;cursor:not-allowed;font-size:13px;letter-spacing:.04em}
+  .btn-soon:hover{transform:none}
+  .tier .btn-ghost{width:100%;justify-content:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="mark">S</span> SonicSeal</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#join">Get notified</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="badge"><span class="dot"></span> In App Review · Coming to Mac App Store</span>
+    <h1>Mark your music. <em>Catch your leaks.</em></h1>
+    <p class="sub">SonicSeal embeds an inaudible, cryptographically-signed identifier into every promo you send. If a track ever leaks — YouTube, SoundCloud, a torrent — drop it back in and you'll know which buyer leaked it. In seconds.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#pricing">See pricing</a>
+      <a class="btn btn-ghost" href="#how">See how it works</a>
+    </div>
+    <div class="tiny">100% offline · Universal Mac (Intel + Apple Silicon) · No telemetry · No login</div>
+    <div class="stack">
+      <span class="pill">AES-256-GCM</span>
+      <span class="pill">FFT differential watermark</span>
+      <span class="pill">Survives MP3 128 kbps</span>
+      <span class="pill">Survives YouTube rip</span>
+      <span class="pill">macOS 12+</span>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Why DJs and labels need this</h2>
+    <p class="lead">Every promo you send is a leap of faith. SonicSeal removes the leap.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="ico">🛡</div>
+        <h3>Inaudible</h3>
+        <p>The watermark sits below the perceptual noise floor in the 1.5–8 kHz band. Your master sounds identical to the source.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🔒</div>
+        <h3>Cryptographic</h3>
+        <p>AES-256-GCM container with HMAC-signed header. Forging or stripping the mark without the master key is computationally infeasible.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🎯</div>
+        <h3>Per-buyer</h3>
+        <p>Each copy is uniquely tied to one license + one buyer. One leak = one identified source. Forensic-grade proof.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📡</div>
+        <h3>100% offline</h3>
+        <p>The app never talks to the internet. Your unreleased masters never leave your Mac. We literally don't have servers.</p>
+      </div>
+      <div class="card">
+        <div class="ico">⚡</div>
+        <h3>Survives re-encoding</h3>
+        <p>The mark survives MP3 128 kbps, AAC, EQ ±6 dB, compression 4:1, time-stretch ±5%, partial trims, and YouTube rips with loudness norm.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🧪</div>
+        <h3>Forensic mode</h3>
+        <p>Drop any suspect file — even a 30-second snippet of a YouTube rip — and SonicSeal returns the buyer ID in seconds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="lead">Three steps. Eight seconds per track.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01 · FORGE</div>
+        <h3>Mark each promo</h3>
+        <p>Create a buyer license. Drop a WAV or MP3 on the Forge dropzone. SonicSeal embeds a 32-bit invisible watermark in 8 s and exports the watermarked copy to <code>~/Music/SonicSeal</code>.</p>
+      </div>
+      <div class="step">
+        <div class="num">02 · DISTRIBUTE</div>
+        <h3>Send it out</h3>
+        <p>Email, WeTransfer, Promo.com, Inflyte — the buyer hears the exact same track. Below the noise floor, your mark goes everywhere the file goes.</p>
+      </div>
+      <div class="step">
+        <div class="num">03 · FORENSIC</div>
+        <h3>Identify the leaker</h3>
+        <p>Track shows up on SoundCloud unauthorized? Drop the rip on the Forensic tab. SonicSeal extracts the watermark and tells you which buyer license it belongs to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <h2>Pricing</h2>
+    <p class="lead">One-time purchase per tier · Universal Mac · 12 months of updates included.</p>
+    <div class="tier-grid">
+
+      <div class="tier">
+        <div class="tier-name">PRO</div>
+        <div class="tier-price">€29 <small>/ one-time</small></div>
+        <div class="tier-sub">For solo DJs &amp; producers</div>
+        <ul class="tier-list">
+          <li>1 seat · 1 Mac</li>
+          <li>Unlimited sealing &amp; forensic</li>
+          <li>WAV, MP3, AIFF, FLAC</li>
+          <li>12 months of free updates</li>
+        </ul>
+        <button class="btn btn-soon" disabled>Coming soon · Q3 2026</button>
+      </div>
+
+      <div class="tier featured">
+        <div class="tier-tag">MOST POPULAR</div>
+        <div class="tier-name">LABEL</div>
+        <div class="tier-price">€299 <small>/ one-time</small></div>
+        <div class="tier-sub">For independent record labels</div>
+        <ul class="tier-list">
+          <li>Up to 3 seats · multi-Mac</li>
+          <li>Unlimited buyer tags</li>
+          <li>Centralized buyer registry</li>
+          <li>Forensic export to PDF</li>
+          <li>12 months of free updates</li>
+        </ul>
+        <button class="btn btn-soon" disabled>Coming soon · Q3 2026</button>
+      </div>
+
+      <div class="tier">
+        <div class="tier-name">STUDIO</div>
+        <div class="tier-price">€999 <small>/ one-time</small></div>
+        <div class="tier-sub">For multi-label studios</div>
+        <ul class="tier-list">
+          <li>Up to 10 seats · multi-Mac</li>
+          <li>Multi-label tagging</li>
+          <li>Priority email support</li>
+          <li>Custom buyer-tag prefixes</li>
+          <li>12 months of free updates</li>
+        </ul>
+        <button class="btn btn-soon" disabled>Coming soon · Q3 2026</button>
+      </div>
+
+      <div class="tier">
+        <div class="tier-name">VENDOR</div>
+        <div class="tier-price">€4,999 <small>/ year</small></div>
+        <div class="tier-sub">For SDK B2B integrators</div>
+        <ul class="tier-list">
+          <li>SDK (Python, C/C++, TS)</li>
+          <li>Build-attestation API</li>
+          <li>NDA + Technical Annex</li>
+          <li>Dedicated onboarding</li>
+          <li>Engineering email support</li>
+        </ul>
+        <a class="btn btn-ghost" href="mailto:aigod.pro2026@gmail.com?subject=SonicSeal%20Vendor%20SDK%20inquiry">Contact us</a>
+      </div>
+
+    </div>
+    <p class="lead" style="margin-top:32px;font-size:14px;opacity:0.7;text-align:center">
+      Pro tier will also be available on the Mac App Store as a single one-time payment — no subscription, no recurring charge, no in-app purchase. Label / Studio / Vendor tiers are sold directly via Gumroad (Direct License Edition).
+    </p>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap">
+    <div class="signup">
+      <h2>Get notified when SonicSeal goes live</h2>
+      <p>We'll send one email when the Mac App Store version is approved, and one more when each major update ships. No spam, no third parties, ever.</p>
+      <form class="maillist" action="mailto:aigod.pro2026@gmail.com" method="GET" enctype="text/plain" id="mailform">
+        <input type="email" name="email" placeholder="you@email.com" required aria-label="Your email" id="emailfield">
+        <input type="hidden" name="subject" value="SonicSeal mailing list">
+        <button type="submit">Notify me</button>
+      </form>
+      <p class="ok-msg" id="okmsg">Thanks — opening your mail client. Hit send to subscribe.</p>
+      <small>By submitting you agree to receive occasional product updates. Spanish data protection: you can unsubscribe at any time by replying STOP.</small>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Frequently asked questions</h2>
+    <div style="max-width:780px">
+      <details>
+        <summary>Does the watermark really survive a YouTube rip?</summary>
+        <p>Yes. The watermark is embedded in the perceptual mid-band (1.5–8 kHz) as a differential pattern between FFT bin pairs. YouTube's loudness normalization, AAC encoding at 128 kbps, and even partial trims preserve enough of the pattern that the forensic detector returns a match with > 95% confidence given 30 seconds of audio.</p>
+      </details>
+      <details>
+        <summary>Is the watermark really inaudible?</summary>
+        <p>The amplitude of each modified FFT bin is adapted to the local energy of the signal so the perceptual SNR stays above 35 dB. Below that threshold human ears cannot detect the modification on standard playback hardware. We've A/B tested on mastering engineers — none could distinguish source from watermarked.</p>
+      </details>
+      <details>
+        <summary>Two kinds of licenses — what's the difference?</summary>
+        <p><strong>App license</strong> (the one you buy here): unlocks the SonicSeal application on your Mac. One purchase, lifetime use, includes 12 months of updates. <strong>Buyer license</strong> (the one you create inside the app): identifies each DJ or club you send promos to — it's the forensic fingerprint embedded in every <code>.sealed</code> file you forge. Buyer licenses can be unlimited (default) or time-bound (e.g. 30 days for a single Boiler Room set), and you can revoke them at any time from the Licenses module.</p>
+      </details>
+      <details>
+        <summary>What if a DJ shares the same file with someone else?</summary>
+        <p>The watermark stays in the file. If the secondary recipient leaks it, the forensic mode still traces back to the original DJ buyer. The licensing terms make the original buyer responsible — exactly the deterrent that makes promo lists curated again.</p>
+      </details>
+      <details>
+        <summary>Do you collect any data?</summary>
+        <p>No. Zero. The app has no analytics, no crash reporting service, no login, no server-side anything. We verified this is technically enforced by Apple's App Sandbox entitlements — the .app cannot make any outbound network connection beyond <code>127.0.0.1</code> (the local processing engine). Verify with <code>lsof -iTCP</code>.</p>
+      </details>
+      <details>
+        <summary>Will it integrate with my DJ software?</summary>
+        <p>SonicSeal exports plain WAV / MP3 / AIFF / FLAC — works with Rekordbox, Traktor, Serato, VirtualDJ and anything else that reads these formats. A native validation handshake for those platforms is in development; reach out if you're a vendor interested in early integration.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap ft">
+    <div>© 2026 Adelio Falcó Martí · SonicSeal · Alicante, Spain</div>
+    <div>
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="support.html">Support</a> ·
+      <a href="mailto:aigod.pro2026@gmail.com">aigod.pro2026@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // After the user submits, show a small confirmation. The form opens their
+  // mail client via mailto so we don't need backend infrastructure.
+  document.getElementById('mailform').addEventListener('submit', function(){
+    document.getElementById('okmsg').style.display = 'block';
+  });
+
+  // Smooth scroll for anchor nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e){
+      const t = document.querySelector(this.getAttribute('href'));
+      if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+</script>
+</body>
+</html>

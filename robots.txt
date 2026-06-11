@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /enterprise.html
+
+Sitemap: https://sonicseal.net/sitemap.xml
