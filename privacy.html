@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy — SonicSeal</title>
+<meta name="description" content="SonicSeal Privacy Policy. SonicSeal does not collect, transmit, or store any personal data. 100% offline by design.">
+<link rel="canonical" href="https://sonicseal.net/privacy.html">
+<style>
+  body{background:#0a0a0d;color:#e8e8ec;font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;margin:0;padding:60px 24px;max-width:760px;margin-left:auto;margin-right:auto}
+  h1{font-size:32px;letter-spacing:-0.02em;margin:0 0 8px}
+  h2{font-size:18px;margin:32px 0 12px;color:#ff7a1a}
+  p,li{color:#c0c0c8}
+  a{color:#ff7a1a}
+  .meta{color:#8b8b95;font-size:13px;margin-bottom:32px}
+  .back{display:inline-block;margin-top:48px;font-size:13px;color:#8b8b95}
+  code{background:#13131a;padding:2px 6px;border-radius:3px;font-size:13px}
+</style>
+</head>
+<body>
+<a class="back" href="/">← sonicseal.net</a>
+<h1>Privacy Policy</h1>
+<p class="meta">Last updated: 11 June 2026</p>
+
+<h2>The short version</h2>
+<p>SonicSeal does not collect, transmit, or store any personal data about you. The app runs 100% offline on your Mac. There are no analytics, no telemetry, no tracking cookies, no third-party scripts.</p>
+
+<h2>Data we do NOT collect</h2>
+<ul>
+  <li>No user accounts (no login, no email required to use the app).</li>
+  <li>No IP addresses or device fingerprints.</li>
+  <li>No usage analytics, no crash reports auto-uploaded.</li>
+  <li>No content of your audio files (everything stays on your Mac).</li>
+  <li>No buyer-tag registries shared with us (you manage those locally).</li>
+</ul>
+
+<h2>What data is stored — locally only on your Mac</h2>
+<p>SonicSeal stores its working data in a SQLite database inside the macOS sandbox at <code>~/Library/Containers/com.sonicseal.app/Data/Library/Application Support/</code>. This includes your license activation, your buyer tags, sealed files registry, and forensic logs. <strong>This data never leaves your Mac.</strong> Deleting the app removes all of it.</p>
+
+<h2>License activation</h2>
+<p>When you paste your license block, the app verifies its Ed25519 signature offline using a public key baked into the app. No request is sent to our servers during activation. The license email you received was sent by Resend (a transactional email provider) on our behalf — see "Email delivery" below.</p>
+
+<h2>Auto-updates</h2>
+<p>If you allow auto-updates (Mac App Store users: managed by Apple — see Apple's privacy policy; Direct License Edition users: managed by GitHub Releases), the app periodically checks <code>github.com/Komar-Developer/SonicSeal-Releases/releases.atom</code> for new versions. This network request reaches GitHub only — never our servers — and contains no personal data beyond your IP (which GitHub processes per their privacy policy).</p>
+
+<h2>Email delivery (purchase confirmation)</h2>
+<p>When you purchase a SonicSeal license via Gumroad, the following happens:</p>
+<ul>
+  <li>Gumroad processes your payment per <a href="https://gumroad.com/privacy">Gumroad's privacy policy</a>.</li>
+  <li>Gumroad sends our system a webhook with your email and purchase metadata.</li>
+  <li>We generate a signed license block in GitHub Actions and email it to you via <a href="https://resend.com/legal/privacy-policy">Resend</a>.</li>
+  <li>Your email is stored solely for re-sending lost licenses on request. We never share or sell it.</li>
+</ul>
+
+<h2>Your rights (GDPR / CCPA)</h2>
+<p>If you'd like us to delete your purchase email from our records, write to <a href="mailto:aigod.pro2026@gmail.com">aigod.pro2026@gmail.com</a> with subject "GDPR deletion" and we'll comply within 30 days. Note this will prevent us from re-sending your license if you lose it.</p>
+
+<h2>Contact</h2>
+<p>Data controller: Adelio Falcó Martí (Spain, EU).<br>
+Email: <a href="mailto:aigod.pro2026@gmail.com">aigod.pro2026@gmail.com</a></p>
+
+<h2>Changes to this policy</h2>
+<p>If we materially change this policy, we'll update the date above. Continued use of SonicSeal after a policy change means you accept the new policy.</p>
+
+</body></html>

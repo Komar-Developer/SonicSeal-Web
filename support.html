@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Support — SonicSeal</title>
+<meta name="description" content="SonicSeal support. Report an issue, request a lost license, or ask a question. Direct email support by the developer.">
+<link rel="canonical" href="https://sonicseal.net/support.html">
+<style>
+  body{background:#0a0a0d;color:#e8e8ec;font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;margin:0;padding:60px 24px;max-width:760px;margin-left:auto;margin-right:auto}
+  h1{font-size:32px;letter-spacing:-0.02em;margin:0 0 8px}
+  h2{font-size:18px;margin:32px 0 12px;color:#ff7a1a}
+  p,li{color:#c0c0c8}
+  a{color:#ff7a1a}
+  .meta{color:#8b8b95;font-size:13px;margin-bottom:32px}
+  .back{display:inline-block;margin-top:48px;font-size:13px;color:#8b8b95}
+  code{background:#13131a;padding:2px 6px;border-radius:3px;font-size:13px}
+  .card{background:#13131a;border:1px solid #23232b;border-radius:8px;padding:20px;margin:16px 0}
+  .card h3{margin:0 0 8px;font-size:16px;color:#e8e8ec}
+  .card p{margin:0;font-size:14px}
+</style>
+</head>
+<body>
+<a class="back" href="/">← sonicseal.net</a>
+<h1>Support</h1>
+<p class="meta">Direct support from the developer. No ticket queue, no bots.</p>
+
+<h2>How to reach us</h2>
+<p>SonicSeal is built and supported by one person (me). The fastest way to get a response is email — I usually reply within 24–48 hours (Spain timezone, CET).</p>
+
+<div class="card">
+  <h3>General support &amp; bug reports</h3>
+  <p><a href="mailto:aigod.pro2026@gmail.com?subject=SonicSeal%20Support">aigod.pro2026@gmail.com</a></p>
+</div>
+
+<div class="card">
+  <h3>Report a security issue</h3>
+  <p><a href="mailto:aigod.pro2026@gmail.com?subject=SonicSeal%20Security%20Report">aigod.pro2026@gmail.com</a> · Subject: <code>SonicSeal Security Report</code></p>
+</div>
+
+<div class="card">
+  <h3>Lost or missing license</h3>
+  <p><a href="mailto:aigod.pro2026@gmail.com?subject=Lost%20License%20-%20Resend%20Request">aigod.pro2026@gmail.com</a> · Include the Gumroad order email and approximate purchase date.</p>
+</div>
+
+<h2>Before you email — common fixes</h2>
+
+<h3 style="color:#e8e8ec;font-size:15px;margin:20px 0 6px">License block won't activate</h3>
+<ul>
+  <li>Make sure you copied the <strong>entire</strong> block, including the <code>-----BEGIN SONICSEAL LICENSE-----</code> and <code>-----END SONICSEAL LICENSE-----</code> lines.</li>
+  <li>Paste it into the multi-line text area (not the single-line search bar).</li>
+  <li>If your email client added line breaks inside the base64 signature, that's fine — SonicSeal tolerates whitespace.</li>
+  <li>Confirm your Mac's date/time is correct (an Ed25519 signature includes an "issued at" timestamp that must be in the past).</li>
+</ul>
+
+<h3 style="color:#e8e8ec;font-size:15px;margin:20px 0 6px">Audio Player shows 0:00</h3>
+<ul>
+  <li>Fixed in v1.0.7. If you're on an older build, update via Help → Check for Updates (DMG edition) or via the Mac App Store.</li>
+</ul>
+
+<h3 style="color:#e8e8ec;font-size:15px;margin:20px 0 6px">App won't open / "damaged" warning (DMG edition)</h3>
+<ul>
+  <li>Right-click the app → Open → Open. macOS Gatekeeper sometimes flags newly notarized builds on first launch.</li>
+  <li>If the warning persists, run in Terminal: <code>xattr -dr com.apple.quarantine /Applications/SonicSeal.app</code></li>
+</ul>
+
+<h3 style="color:#e8e8ec;font-size:15px;margin:20px 0 6px">Where is my data stored?</h3>
+<ul>
+  <li>Mac App Store edition: <code>~/Library/Containers/com.sonicseal.app/Data/Library/Application Support/</code></li>
+  <li>DMG (Direct License) edition: <code>~/Library/Application Support/SonicSeal/</code></li>
+</ul>
+
+<h2>Response time</h2>
+<p>Free/Trial users: best effort, usually within 48 hours.<br>
+Pro / Label / Studio / Vendor license holders: priority email support, usually within 24 hours.</p>
+
+<h2>What we can't help with</h2>
+<ul>
+  <li>Refunds for Gumroad purchases older than 30 days (per Gumroad's policy).</li>
+  <li>Recovering audio that you've already shared publicly (SonicSeal is preventive — it embeds the watermark <em>before</em> distribution).</li>
+  <li>Mac App Store billing issues — those must go through <a href="https://reportaproblem.apple.com">Apple's Report a Problem portal</a>.</li>
+</ul>
+
+</body></html>
