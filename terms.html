@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Terms of Use — SonicSeal</title>
-<meta name="description" content="SonicSeal Terms of Use. License grant, permitted use, warranty disclaimers, and refund policy.">
+<meta name="description" content="SonicSeal Terms of Use. One-time purchase per tier, 12 months of free updates, designed for DJs, labels and SDK integrators.">
 <link rel="canonical" href="https://sonicseal.net/terms.html">
 <style>
   body{background:#0a0a0d;color:#e8e8ec;font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;margin:0;padding:60px 24px;max-width:760px;margin-left:auto;margin-right:auto}
@@ -20,45 +20,51 @@
 <body>
 <a class="back" href="/">← sonicseal.net</a>
 <h1>Terms of Use</h1>
-<p class="meta">Last updated: 11 June 2026</p>
+<p class="meta">Last updated: 12 June 2026</p>
 
 <h2>1. The agreement</h2>
 <p>By downloading or using SonicSeal (the "Software"), you agree to these Terms of Use. The Software is provided by Adelio Falcó Martí ("we", "us") based in Alicante, Spain.</p>
 
-<h2>2. License grant</h2>
-<p>SonicSeal is licensed, not sold. Upon valid purchase or trial activation, you receive a non-exclusive, non-transferable license to install and use the Software on Macs you personally own or control, subject to the tier you purchased:</p>
+<h2>2. Editions and license grant</h2>
+<p>SonicSeal is licensed, not sold. SonicSeal is distributed in two editions:</p>
 <ul>
-  <li><strong>Trial:</strong> 14 days, full features, single Mac. Non-commercial use only.</li>
-  <li><strong>Pro:</strong> Personal use, up to 2 Macs owned by the same individual.</li>
-  <li><strong>Label:</strong> Up to 5 seats inside a single legal entity (record label, management company).</li>
-  <li><strong>Studio:</strong> Up to 25 seats inside a single legal entity.</li>
-  <li><strong>Vendor:</strong> Unlimited seats inside a single legal entity, plus white-label rights as described in your purchase confirmation.</li>
+  <li><strong>Mac App Store Edition (Pro tier only):</strong> a paid-up-front application sold on the Mac App Store at €79,99 (one-time purchase). Governed by Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Standard EULA</a>, which supersedes these Terms for App Store installs. The Apple ID that purchased the app may install it on Macs personally owned or controlled by the same individual, subject to Apple's policy.</li>
+  <li><strong>Direct License Edition (DMG, via Gumroad):</strong> sold via gumroad.com. Activation is performed offline by pasting an Ed25519-signed license block delivered by email after purchase. Tiers are described below.</li>
 </ul>
-<p>Mac App Store (MAS) edition is governed by Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Standard EULA</a>, which supersedes these Terms for MAS installs.</p>
+
+<h3 style="color:#e8e8ec;font-size:16px;margin:24px 0 8px">Direct License Edition tiers</h3>
+<ul>
+  <li><strong>Pro · €79 one-time:</strong> 1 seat, 1 Mac. Designed for solo DJs and producers. WAV / MP3 / AIFF / FLAC support. Unlimited sealing &amp; forensic.</li>
+  <li><strong>Label · €399 one-time:</strong> Up to 3 seats, multi-Mac inside a single legal entity. Unlimited buyer tags, centralized buyer registry, forensic export to PDF.</li>
+  <li><strong>Studio · €1,499 one-time:</strong> Up to 10 seats, multi-Mac inside a single legal entity. Multi-label tagging, priority email support, custom buyer-tag prefixes.</li>
+  <li><strong>Vendor · €4,999 / year:</strong> SDK B2B integration license (Python / C/C++ / TypeScript), build-attestation API, NDA + technical annex, dedicated onboarding, engineering email support. Annual renewal required to keep SDK access active.</li>
+</ul>
+<p>All Direct License Edition tiers except Vendor include <strong>12 months of free updates from the date of purchase</strong>. After the 12-month window the Software continues to work indefinitely on the last released version within that window.</p>
 
 <h2>3. Permitted use</h2>
 <ul>
   <li>You may watermark audio files you own or have explicit rights to.</li>
-  <li>You may store and process buyer-tag metadata locally.</li>
+  <li>You may store and process buyer-tag metadata locally on your Mac.</li>
   <li>You may use the Software for commercial and non-commercial projects within the limits of your tier.</li>
 </ul>
 
 <h2>4. Prohibited use</h2>
 <ul>
   <li>Do not reverse-engineer, decompile, or attempt to extract the Ed25519 verification logic, except where allowed by mandatory EU law (e.g., interoperability under Article 6 of Directive 2009/24/EC).</li>
-  <li>Do not redistribute, resell, sublicense, or share your license block publicly.</li>
+  <li>Do not redistribute, resell, sublicense, or share your Direct License Edition activation block publicly.</li>
   <li>Do not use SonicSeal to watermark content you do not own or have rights to distribute.</li>
-  <li>Do not bypass the trial timer or attempt to forge license blocks.</li>
+  <li>Do not install on more Macs than your tier allows.</li>
 </ul>
 
 <h2>5. Updates</h2>
-<p>Your license includes free updates for <strong>12 months from the date of purchase</strong> (the "Update Window"). After the Update Window, the Software continues to work indefinitely on the last version released within your window. You may renew for €39/year via Gumroad (DMG edition) or via In-App Purchase (Mac App Store edition) to extend the Update Window.</p>
+<p><strong>Mac App Store Edition:</strong> updates are delivered through the Mac App Store while the application remains available on the store, at no additional cost.</p>
+<p><strong>Direct License Edition (Pro / Label / Studio):</strong> 12 months of free updates from the purchase date. After that window the Software continues to work indefinitely on the latest version released within the window. There is no recurring charge and no in-app purchase.</p>
+<p><strong>Vendor tier:</strong> annual subscription. Renewal grants continued SDK updates and support; without renewal the existing build keeps working but no further updates are provided.</p>
 
 <h2>6. Refunds</h2>
-<p>Refunds are processed per the platform you purchased through:</p>
 <ul>
-  <li><strong>Gumroad (DMG):</strong> 30-day no-questions-asked refund. Email us or use Gumroad's refund button.</li>
-  <li><strong>Mac App Store:</strong> Apple controls all MAS refunds — go to <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</li>
+  <li><strong>Mac App Store Edition:</strong> Apple controls all App Store refunds. Request via <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</li>
+  <li><strong>Direct License Edition (Gumroad):</strong> 30-day no-questions-asked refund per Gumroad's standard policy.</li>
 </ul>
 
 <h2>7. Disclaimer of warranty</h2>
@@ -72,7 +78,7 @@
 <p>These Terms are governed by the laws of Spain. Any dispute will be resolved in the courts of Alicante, Spain, except where mandatory consumer-protection law gives you the right to sue in your country of residence.</p>
 
 <h2>10. Changes</h2>
-<p>We may update these Terms when the product evolves. Material changes will be announced on this page (see "Last updated" date above) and via email to license holders.</p>
+<p>We may update these Terms when the product evolves. Material changes will be announced on this page (see "Last updated" date above) and via email to Direct License Edition holders.</p>
 
 <h2>11. Contact</h2>
 <p>Adelio Falcó Martí · Alicante, Spain<br>

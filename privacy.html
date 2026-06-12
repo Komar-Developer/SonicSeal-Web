@@ -20,7 +20,7 @@
 <body>
 <a class="back" href="/">← sonicseal.net</a>
 <h1>Privacy Policy</h1>
-<p class="meta">Last updated: 11 June 2026</p>
+<p class="meta">Last updated: 12 June 2026</p>
 
 <h2>The short version</h2>
 <p>SonicSeal does not collect, transmit, or store any personal data about you. The app runs 100% offline on your Mac. There are no analytics, no telemetry, no tracking cookies, no third-party scripts.</p>
@@ -35,25 +35,33 @@
 </ul>
 
 <h2>What data is stored — locally only on your Mac</h2>
-<p>SonicSeal stores its working data in a SQLite database inside the macOS sandbox at <code>~/Library/Containers/com.sonicseal.app/Data/Library/Application Support/</code>. This includes your license activation, your buyer tags, sealed files registry, and forensic logs. <strong>This data never leaves your Mac.</strong> Deleting the app removes all of it.</p>
+<p>SonicSeal stores its working data in a local database (SQLite) on your Mac:</p>
+<ul>
+  <li><strong>Mac App Store Edition:</strong> <code>~/Library/Containers/com.sonicseal.app/Data/Library/Application Support/</code> (sandboxed by macOS).</li>
+  <li><strong>Direct License Edition (DMG):</strong> <code>~/Library/Application Support/SonicSeal/</code>.</li>
+</ul>
+<p>This database contains your buyer tags, sealed-file registry, and forensic logs. <strong>This data never leaves your Mac.</strong> Uninstalling the app removes all of it.</p>
 
-<h2>License activation</h2>
-<p>When you paste your license block, the app verifies its Ed25519 signature offline using a public key baked into the app. No request is sent to our servers during activation. The license email you received was sent by Resend (a transactional email provider) on our behalf — see "Email delivery" below.</p>
+<h2>Activation</h2>
+<p><strong>Mac App Store Edition:</strong> SonicSeal is a paid-up-front application. There is no activation step. Once purchased and downloaded from the Mac App Store, all features are available immediately. The Apple receipt is verified locally by Apple's StoreKit — no data is sent to us.</p>
+<p><strong>Direct License Edition (DMG):</strong> After purchase on Gumroad you receive an email containing an Ed25519-signed activation block. When you paste this block into the app, the signature is verified <em>locally</em> using a public key embedded in the app. No request is sent to our servers during activation.</p>
 
 <h2>Auto-updates</h2>
-<p>If you allow auto-updates (Mac App Store users: managed by Apple — see Apple's privacy policy; Direct License Edition users: managed by GitHub Releases), the app periodically checks <code>github.com/Komar-Developer/SonicSeal-Releases/releases.atom</code> for new versions. This network request reaches GitHub only — never our servers — and contains no personal data beyond your IP (which GitHub processes per their privacy policy).</p>
+<p><strong>Mac App Store Edition:</strong> updates are delivered exclusively by Apple. See Apple's privacy policy.</p>
+<p><strong>Direct License Edition:</strong> the app periodically checks <code>github.com/Komar-Developer/SonicSeal-Releases/releases.atom</code> for new versions. This network request reaches GitHub only — never our servers — and contains no personal data beyond your IP (which GitHub processes per their privacy policy). You can disable auto-update checks in the app settings.</p>
 
-<h2>Email delivery (purchase confirmation)</h2>
+<h2>Email delivery (Direct License Edition only)</h2>
 <p>When you purchase a SonicSeal license via Gumroad, the following happens:</p>
 <ul>
   <li>Gumroad processes your payment per <a href="https://gumroad.com/privacy">Gumroad's privacy policy</a>.</li>
   <li>Gumroad sends our system a webhook with your email and purchase metadata.</li>
-  <li>We generate a signed license block in GitHub Actions and email it to you via <a href="https://resend.com/legal/privacy-policy">Resend</a>.</li>
-  <li>Your email is stored solely for re-sending lost licenses on request. We never share or sell it.</li>
+  <li>We generate a signed activation block in GitHub Actions and email it to you via <a href="https://resend.com/legal/privacy-policy">Resend</a>.</li>
+  <li>Your email is retained solely to re-send a lost activation block on request. We never share or sell it.</li>
 </ul>
+<p>Mac App Store buyers are unaffected by this flow — Apple manages all purchase communication.</p>
 
 <h2>Your rights (GDPR / CCPA)</h2>
-<p>If you'd like us to delete your purchase email from our records, write to <a href="mailto:aigod.pro2026@gmail.com">aigod.pro2026@gmail.com</a> with subject "GDPR deletion" and we'll comply within 30 days. Note this will prevent us from re-sending your license if you lose it.</p>
+<p>If you'd like us to delete your purchase email from our records, write to <a href="mailto:aigod.pro2026@gmail.com">aigod.pro2026@gmail.com</a> with subject "GDPR deletion" and we'll comply within 30 days. Note this will prevent us from re-sending your activation block if you lose it.</p>
 
 <h2>Contact</h2>
 <p>Data controller: Adelio Falcó Martí (Spain, EU).<br>

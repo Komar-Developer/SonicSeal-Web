@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Support — SonicSeal</title>
-<meta name="description" content="SonicSeal support. Report an issue, request a lost license, or ask a question. Direct email support by the developer.">
+<meta name="description" content="SonicSeal support. Report an issue, request help with your activation block, or ask a question. Direct email support by the developer.">
 <link rel="canonical" href="https://sonicseal.net/support.html">
 <style>
   body{background:#0a0a0d;color:#e8e8ec;font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;margin:0;padding:60px 24px;max-width:760px;margin-left:auto;margin-right:auto}
@@ -26,7 +26,7 @@
 <p class="meta">Direct support from the developer. No ticket queue, no bots.</p>
 
 <h2>How to reach us</h2>
-<p>SonicSeal is built and supported by one person (me). The fastest way to get a response is email — I usually reply within 24–48 hours (Spain timezone, CET).</p>
+<p>SonicSeal is built and supported by one person. The fastest way to get a response is email — I usually reply within 24–48 hours (Spain timezone, CET).</p>
 
 <div class="card">
   <h3>General support &amp; bug reports</h3>
@@ -39,26 +39,33 @@
 </div>
 
 <div class="card">
-  <h3>Lost or missing license</h3>
-  <p><a href="mailto:aigod.pro2026@gmail.com?subject=Lost%20License%20-%20Resend%20Request">aigod.pro2026@gmail.com</a> · Include the Gumroad order email and approximate purchase date.</p>
+  <h3>Lost or missing activation block (Direct License Edition)</h3>
+  <p><a href="mailto:aigod.pro2026@gmail.com?subject=Resend%20Activation%20Block">aigod.pro2026@gmail.com</a> · Include the Gumroad order email and approximate purchase date.</p>
 </div>
 
 <h2>Before you email — common fixes</h2>
 
-<h3 style="color:#e8e8ec;font-size:15px;margin:20px 0 6px">License block won't activate</h3>
+<h3 style="color:#e8e8ec;font-size:15px;margin:20px 0 6px">Activation block won't activate (Direct License Edition)</h3>
 <ul>
   <li>Make sure you copied the <strong>entire</strong> block, including the <code>-----BEGIN SONICSEAL LICENSE-----</code> and <code>-----END SONICSEAL LICENSE-----</code> lines.</li>
   <li>Paste it into the multi-line text area (not the single-line search bar).</li>
   <li>If your email client added line breaks inside the base64 signature, that's fine — SonicSeal tolerates whitespace.</li>
-  <li>Confirm your Mac's date/time is correct (an Ed25519 signature includes an "issued at" timestamp that must be in the past).</li>
+  <li>Confirm your Mac's date/time is correct (the signature includes an "issued at" timestamp that must be in the past).</li>
+  <li>The activation block is bound to <strong>1 Mac per Pro license</strong>. If you need to move it to a new Mac, email us and we'll re-issue it.</li>
+</ul>
+
+<h3 style="color:#e8e8ec;font-size:15px;margin:20px 0 6px">Mac App Store purchase: nothing to activate</h3>
+<ul>
+  <li>The Mac App Store edition is a paid-up-front app. There is no activation step — once it's downloaded from the App Store, all Pro features are immediately available.</li>
+  <li>If features appear locked after install, force-quit and relaunch the app. Apple's receipt is verified locally by macOS on launch.</li>
 </ul>
 
 <h3 style="color:#e8e8ec;font-size:15px;margin:20px 0 6px">Audio Player shows 0:00</h3>
 <ul>
-  <li>Fixed in v1.0.7. If you're on an older build, update via Help → Check for Updates (DMG edition) or via the Mac App Store.</li>
+  <li>Fixed in v1.0.7. If you're on an older build, update via Help → Check for Updates (Direct License Edition) or via the Mac App Store.</li>
 </ul>
 
-<h3 style="color:#e8e8ec;font-size:15px;margin:20px 0 6px">App won't open / "damaged" warning (DMG edition)</h3>
+<h3 style="color:#e8e8ec;font-size:15px;margin:20px 0 6px">App won't open / "damaged" warning (Direct License Edition)</h3>
 <ul>
   <li>Right-click the app → Open → Open. macOS Gatekeeper sometimes flags newly notarized builds on first launch.</li>
   <li>If the warning persists, run in Terminal: <code>xattr -dr com.apple.quarantine /Applications/SonicSeal.app</code></li>
@@ -67,12 +74,12 @@
 <h3 style="color:#e8e8ec;font-size:15px;margin:20px 0 6px">Where is my data stored?</h3>
 <ul>
   <li>Mac App Store edition: <code>~/Library/Containers/com.sonicseal.app/Data/Library/Application Support/</code></li>
-  <li>DMG (Direct License) edition: <code>~/Library/Application Support/SonicSeal/</code></li>
+  <li>Direct License Edition (DMG): <code>~/Library/Application Support/SonicSeal/</code></li>
 </ul>
 
 <h2>Response time</h2>
-<p>Free/Trial users: best effort, usually within 48 hours.<br>
-Pro / Label / Studio / Vendor license holders: priority email support, usually within 24 hours.</p>
+<p>Mac App Store users: best effort, usually within 48 hours. For App Store billing issues, go through Apple's <a href="https://reportaproblem.apple.com">Report a Problem portal</a>.<br>
+Direct License Edition (Pro / Label / Studio / Vendor) holders: priority email support, usually within 24 hours.</p>
 
 <h2>What we can't help with</h2>
 <ul>
